@@ -1,0 +1,1 @@
+<p>Joaquim Júneo &copy - Setembro 2026</p>
