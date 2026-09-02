@@ -14,6 +14,7 @@
     $anuncio->modelo = $_GET['modelo'];
     $anuncio->ano = $_GET['ano'];
     $anuncio->preco = $_GET['preco'];
+    $anuncio->status = "Pendente";
 
     $id = R::store($anuncio);
     
