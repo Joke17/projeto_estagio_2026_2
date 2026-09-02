@@ -10,7 +10,7 @@
         <? include_once 'include/cabecalho.php'; ?>
     </header>
     <main>
-        <form action="login.php" method="post">
+        <form action="login.php" method="get">
             <label for="usuario">usuario: </label>
             <input type="text" id="usuario" name="usuario">
             <label for="usuario">Senha: </label>

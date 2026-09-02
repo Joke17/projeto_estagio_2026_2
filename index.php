@@ -1,3 +1,9 @@
+<?php
+if (session_status() == PHP_SESSION_ACTIVE) {
+    session_destroy();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,7 +23,7 @@
 
             <a href="comprar.php">Comprar um carro</a>
             <br>
-            <a href="vender.php">Vender um carro</a>
+            <a href="anunciar.php">Vender um carro</a>
 
             <p>Somente para colaboradores</p>
             <a href="tela_login.php">Entrar</a>
