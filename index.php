@@ -15,6 +15,11 @@ if (session_status() == PHP_SESSION_ACTIVE) {
     <header>
         <?php 
             include_once 'include/cabecalho.php';
+
+            // if(isset($_GET['logininvalido'])){
+            //     echo $_SESSION['usuario'];
+            // }
+
         ?>
     </header>
     <main>
