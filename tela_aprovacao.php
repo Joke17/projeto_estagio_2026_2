@@ -35,7 +35,7 @@
                            
 AAA;
 
-            $linksaprovacao = "<p><a href=\"carregaanuncio.php?tipo=%s&aprovado=true&id=%s\">Aprovar</a> <a href=\"carregaanuncio.php?tipo=%s&reprovado=true&id=%s\">Rejeitar</a></p></div>";
+            $linksaprovacao = "<p><a href=\"edita_anuncio.php?tipo=%s&aprovado=true&id=%s\">Aprovar</a> <a href=\"edita_anuncio.php?tipo=%s&reprovado=true&id=%s\">Rejeitar</a></p></div>";
             $tipo = 'anuncio';
             printf(
                 $carroparaaprovar,
