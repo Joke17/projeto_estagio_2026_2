@@ -27,7 +27,21 @@
                     <p>Preço: %s</p>
                            
 AAA;
-            $linksaprovacao = "<p><a href=\"carregasolicitacao.php?id=%s\">Solicitar compra</a></p></div>";
+
+            $form = <<<AAA
+        <form action="carregasolicitacao.php?id=%s" method="get">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome"><br>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email"><br>
+            <label for="tel">Telefone: </label>
+            <input type="text" name="tel" id="tel"><br>
+            <input type="hidden" name="id" value="$anuncio->id">
+            <input type="submit" value="Solicitar Compra">
+         </form>
+AAA;
+
+            // $linksaprovacao = "<p><a href=\"carregasolicitacao.php?id=%s\">Solicitar compra</a></p></div>";
 
             printf(
                 $carroparaaprovar,
@@ -39,7 +53,7 @@ AAA;
                 $anuncio->preco,
             );
             printf(
-                $linksaprovacao,
+                $form,
                 $anuncio->id,
             )
         ?>

@@ -22,10 +22,13 @@
             
             echo "<a href=\"aprovar.php?anuncios=true\">Aprovar anuncios</a><br><a href=\"aprovar.php?vendas=true\">Aprovar vendas</a>";
 
-            if(isset($_GET['anuncios'])){
+
                 $cabecalho = <<<AAA
                 <table>
                     <thead>
+                        <tr>
+                            <th>%s Pendentes</th>
+                        </tr>
                         <tr>
                             <th>Marca</th>
                             <th>Modelo</th>
@@ -39,7 +42,7 @@ AAA;
             $corpo = <<<AAA
             <tr>
                 <td>%s</td>
-                <td><a href="tela_anuncio.php?id=%s">%s</a></td>
+                <td><a href="tela_aprovacao.php?%s=true&id=%s">%s</a></td>
                 <td>%s</td>
                 <td>%s</td>
             </tr>
@@ -48,26 +51,46 @@ AAA;
             </tbody>
             </table>
 AAA;
+            if(isset($_GET['anuncios'])){
+                // $anuncios = R::findAll('anuncios');
+                $anuncios = R::find('anuncios', 'status = ?', ['Pendente']);
+                $aprven = "Anuncios";
+                printf($cabecalho, $aprven);
+                foreach($anuncios as $anuncio){
+                    if($anuncio->status == 'Pendente'){
+                        printf(
+                            $corpo,
+                            $anuncio->marca,
+                            $aprven,
+                            $anuncio->id,
+                            $anuncio->modelo,
+                            $anuncio->ano,
+                            $anuncio->status
+                        );                    
+                    }
 
-            $anuncios = R::findAll('anuncios');
-            echo $cabecalho;
-            foreach($anuncios as $anuncio){
-                if($anuncio->status == 'Pendente'){
-                    printf(
-                        $corpo,
-                        $anuncio->marca,
-                        $anuncio->id,
-                        $anuncio->modelo,
-                        $anuncio->ano,
-                        $anuncio->status
-                    );                    
                 }
-
-            }
-            echo $fim;
+                echo $fim;
 
             } else if(isset($_GET['vendas'])){
+                $anuncios = R::find('anuncios', 'status = ?', ['Solicitado']);
+                $aprven = "Vendas";
+                printf($cabecalho, $aprven);
+                foreach($anuncios as $anuncio){
+                    if($anuncio->status == 'Solicitado'){
+                        printf(
+                            $corpo,
+                            $anuncio->marca,
+                            $aprven,
+                            $anuncio->id,
+                            $anuncio->modelo,
+                            $anuncio->ano,
+                            $anuncio->status
+                        );                    
+                    }
 
+                }
+                echo $fim;
             }
         
         ?>
