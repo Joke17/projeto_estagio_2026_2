@@ -1,0 +1,46 @@
+/* Tablet e telas médias */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        padding: 24px;
+    }
+    .col-9{
+
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .col-12{
+
+    }
+}
+
+.col-6{
+
+}
+
+.lista-anuncios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.card-anuncio {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
