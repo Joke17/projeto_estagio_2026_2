@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        <a href="#" onclick="history.back(); return false;">Voltar</a> 
         <?php 
             include_once 'include/cabecalho.php';
         ?>
@@ -20,17 +21,19 @@
 
             $carroparaaprovar = <<<AAA
                 <div>
-                    <p>Nome do proprietário: %s</p>
-                    <p>Telefone: %s</p>
-                    <p>Marca: %s</p>
-                    <p>Modelo: %s</p>
-                    <p>Ano: %s</p>
-                    <p>Preço: %s</p>
+                    <divclass="aprovacao dados-anuncio">
+                        <strong><p>Nome do proprietário:</strong> %s</p>
+                        <strong><p>Telefone:</strong> %s</p>
+                        <strong><p>Marca:</strong> %s</p>
+                        <strong><p>Modelo:</strong> %s</p>
+                        <strong><p>Ano:</strong> %s</p>
+                        <strong><p>Preço:</strong> %s</p>
+                    </div>
                            
 AAA;
 
             $form = <<<AAA
-        <form action="carregasolicitacao.php?id=%s" method="get">
+        <form action="carregasolicitacao.php?id=%s" method="get" class="form-card">
             <label for="nome">Nome: </label>
             <input type="text" name="nome" id="nome"><br>
             <label for="email">Email: </label>

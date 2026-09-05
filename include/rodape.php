@@ -1,1 +1,1 @@
-<p>Joaquim Júneo &copy - Setembro 2026</p>
+<p>Joaquim Júneo &copy - Mupi Systems - Setembro 2026</p>

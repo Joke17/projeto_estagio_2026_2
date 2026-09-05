@@ -1,5 +1,5 @@
 <?php
-    // include_once 'testasessao.php';
+    include_once 'testasessao.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +9,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
+    <style>
+        tr a{
+            color: blue;
+        }
+        tr a:hover{
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <header>        
+        <a href="logout.php">Log Out</a>
         <?php 
             include_once 'include/cabecalho.php';
         ?>
@@ -43,9 +52,9 @@ AAA;
             $corpo = <<<AAA
             <tr>
                 <td>%s</td>
+                <td>%s</td>
+                <td>%s</td>
                 <td><a href="tela_aprovacao.php?%s=true&id=%s">%s</a></td>
-                <td>%s</td>
-                <td>%s</td>
             </tr>
 AAA;
             $fim = <<<AAA
@@ -62,10 +71,10 @@ AAA;
                         printf(
                             $corpo,
                             $anuncio->marca,
-                            $aprven,
-                            $anuncio->id,
                             $anuncio->modelo,
                             $anuncio->ano,
+                            $aprven,
+                            $anuncio->id,
                             $anuncio->status
                         );                    
                     }
@@ -82,10 +91,10 @@ AAA;
                         printf(
                             $corpo,
                             $anuncio->marca,
-                            $aprven,
-                            $anuncio->id,
                             $anuncio->modelo,
                             $anuncio->ano,
+                            $aprven,
+                            $anuncio->id,
                             $anuncio->status
                         );                    
                     }
@@ -95,11 +104,41 @@ AAA;
             }
         
         ?>
+        <?php if(isset($_GET['aprovado'])): ?>
+            <div class="toast toast-sucesso" id="toast">
+                Anuncio aprovado com sucesso!
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
+        <?php if(isset($_GET['aprovada'])): ?>
+            <div class="toast toast-sucesso" id="toast">
+                Venda aprovada com sucesso!
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
+        <?php if(isset($_GET['reprovado'])): ?>
+            <div class="toast toast-sucesso" id="toast">
+                Anuncio reprovado com sucesso!
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
+        <?php if(isset($_GET['reprovada'])): ?>
+            <div class="toast toast-sucesso" id="toast">
+                Venda reprovada com sucesso!
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
     </main>
     <footer>
         <?php 
             include_once 'include/rodape.php';
         ?>
     </footer>
+    <script>
+        const toast = document.getElementById('toast');
+        if (toast) {
+            setTimeout(() => toast.remove(), 4000);
+        }
+    </script>
 </body>
 </html>

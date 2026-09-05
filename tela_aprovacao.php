@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+        <a href="#" onclick="history.back(); return false;">Voltar</a> 
         <?php 
             include_once 'include/cabecalho.php';
         ?>
@@ -20,24 +21,32 @@
             $comprador = R::findOne('compras', 'anuncio = ?', [$_GET['id']]);
 
             $carroparaaprovar = <<<AAA
-                <div>
-                    <h2 style="text-align: center;">Aprovação Pendendte </h2>
-                    <div class="aprovacao">
-                        <p>Nome do proprietário: %s</p>
-                        <p>Email: %s</p>
-                        <p>Telefone: %s</p>
-                        <p>CPF: %s</p>
-                        <p>Limite para Venda: %s</p>
-                        <p>Marca: %s</p>
-                        <p>Modelo: %s</p>
-                        <p>Ano: %s</p>
-                        <p>Preço: %s</p>
-                        <p>Status: %s</p>
+                <div class="">
+                    <h2 style="text-align: center;">Aprovação Pendente </h2>
+                    <div class="aprovacao dados-anuncio">
+                        <strong><p>Nome do proprietário:</strong> %s</p>
+                        <strong><p>Email:</strong> %s</p>
+                        <strong><p>Telefone:</strong> %s</p>
+                        <strong><p>CPF:</strong> %s</p>
+                        <strong><p>Limite para Venda:</strong> %s</p>
+                        <strong><p>Marca:</strong> %s</p>
+                        <strong><p>Modelo:</strong> %s</p>
+                        <strong><p>Ano:</strong> %s</p>
+                        <strong><p>Preço:</strong> %s</p>
+                        <strong><p>Status:</strong> %s</p>
                     </div>
                            
 AAA;
 
-            $linksaprovacao = "<p style=\"text-align: right;\"><a href=\"edita_anuncio.php?tipo=%s&aprovado=true&id=%s\">Aprovar</a> <a href=\"edita_anuncio.php?tipo=%s&reprovado=true&id=%s\">Rejeitar</a></p></div>";
+            $linksaprovacao = <<<AAA
+                                
+                                <div class="btnsapr">
+                                    <div class="btn-aprovar"><a href="edita_anuncio.php?tipo=%s&aprovad%s=true&id=%s">Aprovar</a></div>
+                                    <div class="btn-rejeitar"><a href="edita_anuncio.php?tipo=%s&reprovad%s=true&id=%s">Rejeitar</a></div>
+                                </div>
+                                
+                                </div>
+AAA;
             $tipo = 'anuncio';
             printf(
                 $carroparaaprovar,
@@ -56,26 +65,35 @@ AAA;
             if(isset($_GET['Vendas'])){
                 $tipo = 'venda';                
                 $infoscomprador = <<<AAA
-                    <div class="aprovacao" style="margin: 10px auto">
-                        <h3>Comprador</h3>
-                        <p>Nome do comprador: %s</p>
-                        <p>Email: %s</p>
-                        <p>Telefone: %s</p>
+                <br><br>
+                <h3>Dados do Comprador</h3>
+                    <div class="aprovacao dados-anuncio" style="margin: 10px auto">
+                        <strong><p>Nome do comprador:</strong> %s</p>
+                        <strong><p>Email:</strong> %s</p>
+                        <strong><p>Telefone:</strong> %s</p>
                     </div>
 AAA;                
                 printf(
                     $infoscomprador,
-                    $comprador->nome,
+                    $comprador->comprador,
                     $comprador->email,
                     $comprador->telefone,
                 );
             }
 
+            if($tipo == "venda"){
+                $letra = 'a';
+            } else {
+                $letra = 'o';
+            }
+
             printf(
                 $linksaprovacao,
                 $tipo,
+                $letra,
                 $anuncio->id,
                 $tipo,
+                $letra,
                 $anuncio->id
             );
         ?>

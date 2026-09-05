@@ -11,8 +11,8 @@ if (session_status() == PHP_SESSION_ACTIVE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <title>Home</title>
     <style>
         div{
@@ -26,7 +26,7 @@ if (session_status() == PHP_SESSION_ACTIVE) {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
         }
-    </style>
+    </style> -->
 
 </head>
 <body>
@@ -53,15 +53,33 @@ if (session_status() == PHP_SESSION_ACTIVE) {
             <br><br>
             <hr>
 
-            <p>Somente para colaboradores</p>
+            <h3>Somente para colaboradores</h3>
             <div class="btn-entrar"><a href="tela_login.php">Entrar</a></div>
 
         </div>
+        <?php if(isset($_GET['solicitacao'])): ?>
+            <div class="toast toast-sucesso" id="toast">
+                Solicitação de compra enviada com sucesso!
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
+        <?php if(isset($_GET['anunciado'])): ?>
+            <div class="toast toast-sucesso" id="toast">
+                Anuncio enviado para análise com sucesso!
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
     </main>
     <footer>
         <?php 
             include_once 'include/rodape.php';
         ?>
     </footer>
+    <script>
+        const toast = document.getElementById('toast');
+        if (toast) {
+            setTimeout(() => toast.remove(), 4000);
+        }
+    </script>
 </body>
 </html>

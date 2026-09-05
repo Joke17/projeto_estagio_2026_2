@@ -17,15 +17,15 @@
         }        
     } else if($_GET['tipo'] == 'venda'){
         // $staus = 'Aprovado';
-            if(isset($_GET['aprovado'])){
+            if(isset($_GET['aprovada'])){
                 $anuncio->status = 'Comprado';
                 R::store($anuncio);
-                header('Location:aprovar.php?aprovado=true');
+                header('Location:aprovar.php?aprovada=true');
             
-            } else if(isset($_GET['reprovado'])){ 
+            } else if(isset($_GET['reprovada'])){ 
                 $anuncio->status = 'Compra reprovada';
                 R::store($anuncio);
-                header('Location:aprovar.php?reprovado=true');
+                header('Location:aprovar.php?reprovada=true');
             }
     }
 

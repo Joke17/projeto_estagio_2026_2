@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f4f5;
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
 /* Tablet e telas médias */
 @media (min-width: 768px) {
     .container {
@@ -60,7 +77,7 @@ main{
 
 .card-anuncio {
     background: #fff;
-    border: 1px solid #ddd;
+    border: 3px solid #ddd;
     border-radius: 8px;
     padding: 16px;
 }
@@ -92,9 +109,36 @@ main{
 
 /* botoes */
 .btn-aprovar{
-    margin: auto 5px;
-    padding: 3px;
+    width: 25%;
+    padding: 10px;
     background-color: green;
+    color: white;
+    border-radius: 10px;
+    margin: 20px;    
+}
+.btn-aprovar:hover{
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+.btn-rejeitar{
+    width: 25%;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    margin: 20px;
+}
+.btn-rejeitar:hover{
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
+.btnsapr{
+    display: flex;
+    margin: 0 auto;
+    /* width: 50%; */
+    /* border: 1px solid red; */
+    justify-content: center;  
+    align-items: center; 
 }
 
 .btn-acao{
@@ -106,6 +150,10 @@ main{
     border-radius: 10px;
     margin: 0 auto;
 }
+.btn-acao:hover{
+    box-shadow: 3px 3px 3px gray;
+    /* background-color: aqua; */
+}
 
 .btn-entrar{
     width: 40%;
@@ -114,6 +162,65 @@ main{
     border-radius: 10px;
     margin: 15px auto;
 }
+.btn-entrar:hover{
+    box-shadow: 3px 3px 3px gray;
+    /* background-color: aqua; */
+}
+
+
+
+/* demais calsses */
+.input-aunciar{
+    width: 100px;
+    height: 40px;
+    background-color: greenyellow;
+    margin: 0 auto;
+}  
+.form-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    max-width: 600px;
+    margin: 24px auto;
+}
+
+.form-card label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-family: inherit;
+}
+
+.form-card input[type="submit"] {
+    background-color: #9ee62f;
+    border: 2px solid #333;
+    font-weight: 600;
+    cursor: pointer;
+    transition: filter 0.15s;
+}
+
+.form-card input[type="submit"]:hover {
+    filter: brightness(0.95);
+}
+
+.dados-anuncio {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.dados-anuncio strong {
+    color: #333;
+}
+/* tags */
 
 header{
     background-color: gray;
@@ -128,8 +235,9 @@ footer{
     color: wheat;
     margin: 0;
     background-color: gray;
-    height: 10%;
-    padding: 13%;
+    height: 5%;
+    padding: 8%;
+    border-radius: 0 0 20px 20px;
 }
 
 body{
@@ -167,5 +275,47 @@ tr:nth-child(2n){
 
 a{
     text-decoration-line: none;
+    color: white;
 }
 
+input{
+    border-radius: 3px;
+}
+ 
+
+form{
+    text-align: left;
+    width: 40%;
+    margin: 0 auto;
+}
+
+
+/* mensagens de conformação */
+.toast {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 14px 24px;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: toast-vida 4s forwards;
+}
+
+.toast-sucesso {
+    background-color: #1a7a1a;
+}
+
+.toast-erro {
+    background-color: #d32f2f;
+}
+
+@keyframes toast-vida {
+    0%   { opacity: 0; transform: translate(-50%, -20px); }
+    10%  { opacity: 1; transform: translate(-50%, 0); }
+    85%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -20px); }
+}

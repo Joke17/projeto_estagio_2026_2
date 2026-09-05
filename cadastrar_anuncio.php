@@ -18,6 +18,6 @@
 
     $id = R::store($anuncio);
     
-    header('Location:anunciar.php?anunciado=true');
+    header('Location:index.php?anunciado=true');
 
 ?>

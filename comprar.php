@@ -8,6 +8,7 @@
 </head>
 <body>
     <header>
+         <a href="#" onclick="history.back(); return false;">Voltar</a> 
         <?php 
             include_once 'include/cabecalho.php';
         ?>
@@ -28,9 +29,10 @@
                 echo "<div class=\"lista-anuncios\">";
                 $card_carros = <<<AAA
                     <div class="card-anuncio">
-                        
-                        <div class=""><p>Marca: %s - Modelo: %s - Ano: %s</p></div>
-                        <div class=""><p><a href="finalizacompra.php?id=%s">Ver mais</a></p></div>
+                            <strong><p>Marca:</strong> %s</p>
+                            <strong><p>Modelo:</strong> %s</p>
+                            <strong><p>Ano:</strong> %s</p>
+                        <div class="btn-acao"><p><a href="finalizacompra.php?id=%s">Ver mais</a></p></div>
                     </div>
 AAA;
 
