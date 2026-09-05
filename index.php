@@ -9,7 +9,25 @@ if (session_status() == PHP_SESSION_ACTIVE) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <title>Home</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+    </style>
+
 </head>
 <body>
     <header>
@@ -26,12 +44,17 @@ if (session_status() == PHP_SESSION_ACTIVE) {
         <div>
             <h3>O que você deseja fazer hoje?</h3>
 
-            <a href="comprar.php">Comprar um carro</a>
+            <br><br>
+
+            <div class="btn-acao"><a style="color: white;" href="comprar.php">Comprar um carro</a></div>
             <br>
-            <a href="anunciar.php">Vender um carro</a>
+            <div class="btn-acao"><a style="color: white;" href="anunciar.php">Vender um carro</a></div>
+
+            <br><br>
+            <hr>
 
             <p>Somente para colaboradores</p>
-            <a href="tela_login.php">Entrar</a>
+            <div class="btn-entrar"><a href="tela_login.php">Entrar</a></div>
 
         </div>
     </main>

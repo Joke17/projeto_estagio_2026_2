@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,15 +21,15 @@
         <?php 
             include_once "rb/conexao.php";
             
-            echo "<a href=\"aprovar.php?anuncios=true\">Aprovar anuncios</a><br><a href=\"aprovar.php?vendas=true\">Aprovar vendas</a>";
-
+            echo "
+            <div class=\"btn-acao\"><a href=\"aprovar.php?anuncios=true\">Aprovar anuncios</a></div>
+            <br>
+            <div class=\"btn-acao\"><a href=\"aprovar.php?vendas=true\">Aprovar vendas</a></div>";
 
                 $cabecalho = <<<AAA
+                <h2 style="text-align: center;">%s Pendentes</h2>
                 <table>
                     <thead>
-                        <tr>
-                            <th>%s Pendentes</th>
-                        </tr>
                         <tr>
                             <th>Marca</th>
                             <th>Modelo</th>

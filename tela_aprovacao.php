@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Anuncio</title>
 </head>
 <body>
@@ -20,7 +21,8 @@
 
             $carroparaaprovar = <<<AAA
                 <div>
-                    <div>
+                    <h2 style="text-align: center;">Aprovação Pendendte </h2>
+                    <div class="aprovacao">
                         <p>Nome do proprietário: %s</p>
                         <p>Email: %s</p>
                         <p>Telefone: %s</p>
@@ -35,7 +37,7 @@
                            
 AAA;
 
-            $linksaprovacao = "<p><a href=\"edita_anuncio.php?tipo=%s&aprovado=true&id=%s\">Aprovar</a> <a href=\"edita_anuncio.php?tipo=%s&reprovado=true&id=%s\">Rejeitar</a></p></div>";
+            $linksaprovacao = "<p style=\"text-align: right;\"><a href=\"edita_anuncio.php?tipo=%s&aprovado=true&id=%s\">Aprovar</a> <a href=\"edita_anuncio.php?tipo=%s&reprovado=true&id=%s\">Rejeitar</a></p></div>";
             $tipo = 'anuncio';
             printf(
                 $carroparaaprovar,
@@ -54,7 +56,7 @@ AAA;
             if(isset($_GET['Vendas'])){
                 $tipo = 'venda';                
                 $infoscomprador = <<<AAA
-                    <div>
+                    <div class="aprovacao" style="margin: 10px auto">
                         <h3>Comprador</h3>
                         <p>Nome do comprador: %s</p>
                         <p>Email: %s</p>
