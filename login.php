@@ -17,20 +17,31 @@
     //     }
     // }
 
-           foreach ($usuario as $user) {
-            if($user['nome'] == $_GET['nome']){
+
+        
+
+    if((isset($_GET['usuario']) && $_GET['usuario'] != "")){
+        foreach ($usuario as $user) {
+            if($user['nome'] == $_GET['usuario']){
                 if($user['senha'] == $_GET['senha']){
                     $_SESSION['usuario'] = $_GET['usuario'];
-                }
-            }
-        }
 
-    if(isset($_SESSION['usuario'])){
-        header('Location: aprovar.php');
-        // exit;
+                }
+            }        
+                    // exit;
+        }
+        
     } else {
         session_destroy();
-        header('Location: tela_login.php?usuario=null');
+        header('Location:tela_login.php?usuario=null');
+        // exit;
+    }
+
+    if(isset($_SESSION['usuario'])){
+        header('Location:aprovar.php');        
+    } else {
+        session_destroy();
+        header('Location:tela_login.php?usuario=null');
         // exit;
     }
 

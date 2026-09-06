@@ -75,7 +75,7 @@
                 <input type="submit" value="Entrar">
             </form>
             <br>
-            <a href="#" onclick="history.back(); return false;">Voltar</a> 
+            <!-- <a href="#" onclick="history.back(); return false;">Voltar</a>  -->
         </div>
         <!-- <a href="index.php">Voltar</a> -->
     </main>
