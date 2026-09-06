@@ -116,7 +116,7 @@ main{
     border-radius: 10px;
     margin: 20px;    
 }
-.btn-aprovar:hover{
+.btn-aprovar:hover, .btn-rejeitar:hover{
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
     transform: translateY(-2px);
 }
@@ -128,10 +128,10 @@ main{
     border-radius: 10px;
     margin: 20px;
 }
-.btn-rejeitar:hover{
+/* .btn-rejeitar:hover{
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
     transform: translateY(-2px);
-}
+} */
 .btnsapr{
     display: flex;
     margin: 0 auto;
@@ -150,8 +150,10 @@ main{
     border-radius: 10px;
     margin: 0 auto;
 }
-.btn-acao:hover{
+.btn-acao:hover, .btn-entrar:hover, .btn-voltar:hover{
     box-shadow: 3px 3px 3px gray;
+    transform: translateY(-2px);
+
     /* background-color: aqua; */
 }
 
@@ -162,12 +164,22 @@ main{
     border-radius: 10px;
     margin: 15px auto;
 }
-.btn-entrar:hover{
+/* .btn-entrar:hover{
     box-shadow: 3px 3px 3px gray;
-    /* background-color: aqua; */
+    /* background-color: aqua; 
+} */
+
+.btn-voltar{
+    width: 100px;
+    padding: 8px;
+    background-color:red;
+    border-radius: 10px;
+    /* margin: 0 0 0 20px; */
+    color: wheat;
 }
-
-
+.btn-voltar:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
 
 /* demais calsses */
 .input-aunciar{
@@ -229,6 +241,11 @@ header{
     height: 10%;
     margin: 0;
     color: wheat;
+    /* display: flex; */
+    display: flex;
+    align-items: center;        /* centraliza tudo verticalmente */
+    justify-content: space-between;  /* botão de um lado, título do outro */
+    padding: 12px 20px
 }
 
 footer{

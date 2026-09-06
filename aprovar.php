@@ -20,10 +20,10 @@
 </head>
 <body>
     <header>        
-        <a href="logout.php">Log Out</a>
         <?php 
             include_once 'include/cabecalho.php';
         ?>
+        <div class="btn-voltar"><a href="logout.php">Log Out</a></div>
     </header>
     <main>
         <h1>Aprovações</h1>
