@@ -12,10 +12,10 @@
 </head>
 <body>
     <header>
-        <a href="#" onclick="history.back(); return false;">Voltar</a> 
         <?php 
             include_once 'include/cabecalho.php';
         ?>
+        <div class="btn-voltar"><a href="#" onclick="history.back(); return false;">Voltar</a></div>  
     </header>
     <main>
         <?php 
