@@ -1,3 +1,7 @@
+<?php
+    include_once 'testasessao.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
