@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +23,7 @@
 
             //carrega do bd o anúncio selecionado na tela anterior, e seu possível comprador respectivo
             $anuncio = R::findOne('anuncios', 'id = ?', [$_GET['id']]);
+            $data_limite_formatada = date('d/m/Y', strtotime($anuncio->limite_venda));
             $comprador = R::findOne('compras', 'anuncio = ?', [$_GET['id']]);
 
             $carroparaaprovar = <<<AAA
@@ -59,7 +60,7 @@ AAA;
                 $anuncio->email,
                 $anuncio->telefone,
                 $anuncio->cpf,
-                $anuncio->limite_venda,
+                $data_limite_formatada,
                 $anuncio->marca,
                 $anuncio->modelo,
                 $anuncio->ano,
