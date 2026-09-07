@@ -36,6 +36,7 @@
                     </div>
 AAA;
 
+                //verifica os anuncios aprovados e printa somente eles
                 foreach($carros as $anunciado){
                     if($anunciado->status == 'Aprovado'){
                         printf(

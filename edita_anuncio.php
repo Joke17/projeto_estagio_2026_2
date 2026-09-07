@@ -3,6 +3,8 @@
 
     $anuncio = R::load('anuncios', $_GET['id']);
 
+    //verifica pelo tipo do GET, se tratar de uma venda ou um anuncio, e edita o status de acordo com o caso
+
     if($_GET['tipo'] == 'anuncio'){
         // $staus = 'Aprovado';
         if(isset($_GET['aprovado'])){

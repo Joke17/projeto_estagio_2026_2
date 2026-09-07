@@ -57,6 +57,7 @@ if (session_status() == PHP_SESSION_ACTIVE) {
             <div class="btn-entrar"><a href="tela_login.php">Entrar</a></div>
 
         </div>
+        <!-- mensagem temporaria de confirmação da ação  -->
         <?php if(isset($_GET['solicitacao'])): ?>
             <div class="toast toast-sucesso" id="toast">
                 Solicitação de compra enviada com sucesso!

@@ -30,11 +30,12 @@
         <?php 
             include_once "rb/conexao.php";
             
+            // botões de ações possiveis na página
             echo "
             <div class=\"btn-acao\"><a href=\"aprovar.php?anuncios=true\">Aprovar anuncios</a></div>
             <br>
             <div class=\"btn-acao\"><a href=\"aprovar.php?vendas=true\">Aprovar vendas</a></div>";
-
+            
                 $cabecalho = <<<AAA
                 <h2 style="text-align: center;">%s Pendentes</h2>
                 <table>
@@ -61,6 +62,7 @@ AAA;
             </tbody>
             </table>
 AAA;
+            //confere se a ação a ser feita é aprovar vendas ou anuncios
             if(isset($_GET['anuncios'])){
                 // $anuncios = R::findAll('anuncios');
                 $anuncios = R::find('anuncios', 'status = ?', ['Pendente']);
@@ -104,6 +106,7 @@ AAA;
             }
         
         ?>
+        <!-- mensagem temporaria de confirmação da ação  -->
         <?php if(isset($_GET['aprovado'])): ?>
             <div class="toast toast-sucesso" id="toast">
                 Anuncio aprovado com sucesso!

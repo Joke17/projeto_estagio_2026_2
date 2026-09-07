@@ -17,6 +17,7 @@
         <?php 
             include_once 'rb/conexao.php';
 
+            //carrega o anúncio completo do carro escolhido na página anterior
             $anuncio = R::findOne('anuncios', 'id = ?', [$_GET['id']]);
 
             $carroparaaprovar = <<<AAA

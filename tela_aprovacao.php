@@ -21,6 +21,7 @@
         <?php 
             include_once 'rb/conexao.php';
 
+            //carrega do bd o anúncio selecionado na tela anterior, e seu possível comprador respectivo
             $anuncio = R::findOne('anuncios', 'id = ?', [$_GET['id']]);
             $comprador = R::findOne('compras', 'anuncio = ?', [$_GET['id']]);
 
@@ -66,6 +67,7 @@ AAA;
                 $anuncio->status
             );
 
+            //verifica se tratar da aprovação de uma venda, e se for o caso, mostra também os dados co comprador
             if(isset($_GET['Vendas'])){
                 $tipo = 'venda';                
                 $infoscomprador = <<<AAA
@@ -85,6 +87,7 @@ AAA;
                 );
             }
 
+            //verificação se a aprovação é de uma venda ou de um anuncio, para passar corretamente os parametros
             if($tipo == "venda"){
                 $letra = 'a';
             } else {

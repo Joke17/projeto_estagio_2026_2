@@ -44,6 +44,7 @@
              <input type="submit" value="Anunciar" class="input-aunciar">
              
         </form>
+        <!-- mensagem temporaria de confirmação da ação  -->
         <?php if(isset($_GET['anunciado'])): ?>
             <div class="toast toast-sucesso" id="toast">
                 Anuncio enviado para análise com sucesso!
