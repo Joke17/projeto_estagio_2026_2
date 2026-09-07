@@ -41,6 +41,9 @@ h1, h2, h3 {
     height: 50%;
     }
 
+    footer{
+        border-radius: 0 0 20px 20px;
+    }
 
 /* VER ISSO AQUI DO BOTAO DE ENTRA NO PC */
     .btn-entrar{
@@ -254,7 +257,6 @@ footer{
     background-color: gray;
     height: 5%;
     padding: 8%;
-    border-radius: 0 0 20px 20px;
 }
 
 body{

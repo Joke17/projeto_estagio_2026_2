@@ -24,6 +24,7 @@
             //carrega do bd o anúncio selecionado na tela anterior, e seu possível comprador respectivo
             $anuncio = R::findOne('anuncios', 'id = ?', [$_GET['id']]);
             $data_limite_formatada = date('d/m/Y', strtotime($anuncio->limite_venda));
+            $data_criacao_formatada = date('d/m/Y H:i', strtotime($anuncio->criado_em));
             $comprador = R::findOne('compras', 'anuncio = ?', [$_GET['id']]);
 
             $carroparaaprovar = <<<AAA
@@ -40,6 +41,7 @@
                         <strong><p>Ano:</strong> %s</p>
                         <strong><p>Preço:</strong> %s</p>
                         <strong><p>Status:</strong> %s</p>
+                        <strong><p>Criado em:</strong> %s</p>
                     </div>
                            
 AAA;
@@ -65,7 +67,8 @@ AAA;
                 $anuncio->modelo,
                 $anuncio->ano,
                 $anuncio->preco,
-                $anuncio->status
+                $anuncio->status,
+                $data_criacao_formatada
             );
 
             //verifica se tratar da aprovação de uma venda, e se for o caso, mostra também os dados co comprador
