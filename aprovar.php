@@ -65,7 +65,8 @@ AAA;
             //confere se a ação a ser feita é aprovar vendas ou anuncios
             if(isset($_GET['anuncios'])){
                 // $anuncios = R::findAll('anuncios');
-                $anuncios = R::find('anuncios', 'status = ?', ['Pendente']);
+                // $anuncios = R::find('anuncios', 'status = ?', ['Pendente']);
+                $anuncios = R::find('anuncios', 'status = ? ORDER BY criado_em ASC', ['Pendente']);
                 $aprven = "Anuncios";
                 printf($cabecalho, $aprven);
                 foreach($anuncios as $anuncio){
@@ -85,7 +86,8 @@ AAA;
                 echo $fim;
 
             } else if(isset($_GET['vendas'])){
-                $anuncios = R::find('anuncios', 'status = ?', ['Solicitado']);
+                // $anuncios = R::find('anuncios', 'status = ?', ['Solicitado']);
+                $anuncios = R::find('anuncios', 'status = ? ORDER BY criado_em ASC', ['Solicitado']);
                 $aprven = "Vendas";
                 printf($cabecalho, $aprven);
                 foreach($anuncios as $anuncio){
