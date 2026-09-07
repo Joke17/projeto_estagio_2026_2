@@ -70,6 +70,12 @@ if (session_status() == PHP_SESSION_ACTIVE) {
                 <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
             </div>
         <?php endif; ?>
+        <?php if(isset($_GET['logininvalido'])): ?>
+            <div class="toast toast-erro" id="toast">
+                Faça Login para acessar essa página.
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
     </main>
     <footer>
         <?php 

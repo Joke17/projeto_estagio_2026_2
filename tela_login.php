@@ -57,6 +57,34 @@
         .form-card--login {
             max-width: 380px;
         }
+        .toast {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 14px 24px;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            animation: toast-vida 4s forwards;
+        }
+
+        .toast-sucesso {
+            background-color: #1a7a1a;
+        }
+
+        .toast-erro {
+            background-color: #d32f2f;
+        }
+
+        @keyframes toast-vida {
+            0%   { opacity: 0; transform: translate(-50%, -20px); }
+            10%  { opacity: 1; transform: translate(-50%, 0); }
+            85%  { opacity: 1; }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
     </style>
 </head>
 
@@ -78,9 +106,21 @@
             <!-- <a href="#" onclick="history.back(); return false;">Voltar</a>  -->
         </div>
         <!-- <a href="index.php">Voltar</a> -->
+        <?php if(isset($_GET['usuario'])): ?>
+            <div class="toast toast-erro" id="toast">
+                Login ou senha inválidos.
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
     </main>
     <footer>
     </footer>
+    <script>
+        const toast = document.getElementById('toast');
+        if (toast) {
+            setTimeout(() => toast.remove(), 4000);
+        }
+    </script>
 </body>
 
 </html>

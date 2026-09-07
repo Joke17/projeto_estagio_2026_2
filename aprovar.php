@@ -120,17 +120,18 @@ AAA;
             </div>
         <?php endif; ?>
         <?php if(isset($_GET['reprovado'])): ?>
-            <div class="toast toast-sucesso" id="toast">
+            <div class="toast toast-erro" id="toast">
                 Anuncio reprovado com sucesso!
                 <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
             </div>
         <?php endif; ?>
         <?php if(isset($_GET['reprovada'])): ?>
-            <div class="toast toast-sucesso" id="toast">
-                Venda reprovada com sucesso!
+            <div class="toast toast-erro" id="toast">
+                Venda rejeitada com sucesso!
                 <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
             </div>
         <?php endif; ?>
+
     </main>
     <footer>
         <?php 
