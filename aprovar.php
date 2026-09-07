@@ -32,7 +32,7 @@
             
             // botões de ações possiveis na página
             echo "
-            <div class=\"btn-acao\"><a href=\"aprovar.php?anuncios=true\">Aprovar anuncios</a></div>
+            <div class=\"btn-acao\"><a href=\"aprovar.php?anuncios=true\">Aprovar anúncios</a></div>
             <br>
             <div class=\"btn-acao\"><a href=\"aprovar.php?vendas=true\">Aprovar vendas</a></div>";
             
