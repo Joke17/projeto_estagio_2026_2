@@ -1,24 +1,29 @@
 <?php
 
-    include_once 'rb/conexao.php';
+    if($_GET['nome_proprietario'] != "" && $_GET['email'] != "" && $_GET['telefone'] != "" && $_GET['cpf'] != "" && $_GET['limite_venda'] != "" && $_GET['marca'] != "" && $_GET['modelo'] != "" && $_GET['ano'] != "" && $_GET['preco'] != ""){
 
-    // $anuncio = R::findAll('carros_anunciados');
+        include_once 'rb/conexao.php';
 
-    $anuncio = R::dispense('anuncios');
-    $anuncio->nome_proprietario = $_GET['nome_proprietario'];
-    $anuncio->email = $_GET['email'];
-    $anuncio->telefone = $_GET['telefone'];
-    $anuncio->cpf = $_GET['cpf'];
-    $anuncio->limite_venda = $_GET['limite_venda'];
-    $anuncio->marca = $_GET['marca'];
-    $anuncio->modelo = $_GET['modelo'];
-    $anuncio->ano = $_GET['ano'];
-    $anuncio->preco = $_GET['preco'];
-    $anuncio->status = "Pendente";
-    $anuncio->criado_em = date('Y-m-d H:i:s');
+        // $anuncio = R::findAll('carros_anunciados');
 
-    $id = R::store($anuncio);
-    
-    header('Location:index.php?anunciado=true');
+        $anuncio = R::dispense('anuncios');
+        $anuncio->nome_proprietario = $_GET['nome_proprietario'];
+        $anuncio->email = $_GET['email'];
+        $anuncio->telefone = $_GET['telefone'];
+        $anuncio->cpf = $_GET['cpf'];
+        $anuncio->limite_venda = $_GET['limite_venda'];
+        $anuncio->marca = $_GET['marca'];
+        $anuncio->modelo = $_GET['modelo'];
+        $anuncio->ano = $_GET['ano'];
+        $anuncio->preco = $_GET['preco'];
+        $anuncio->status = "Pendente";
+        $anuncio->criado_em = date('Y-m-d H:i:s');
+
+        $id = R::store($anuncio);
+        
+        header('Location:index.php?anunciado=true');
+    } else {
+        header('Location:anunciar.php?campos=false');
+    }
 
 ?>

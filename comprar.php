@@ -53,13 +53,23 @@ AAA;
             }
 
         ?>
-        
-        
+        <?php if(isset($_GET['invalido'])): ?>
+            <div class="toast toast-erro" id="toast">
+                Preencha todos os campos.
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
     </main>
     <footer>
         <?php 
             include_once 'include/rodape.php';
         ?>
     </footer>
+    <script>
+        const toast = document.getElementById('toast');
+        if (toast) {
+            setTimeout(() => toast.remove(), 4000);
+        }
+    </script>
 </body>
 </html>

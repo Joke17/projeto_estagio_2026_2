@@ -51,6 +51,12 @@
                 <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
             </div>
         <?php endif; ?>
+        <?php if(isset($_GET['campos'])): ?>
+            <div class="toast toast-erro" id="toast">
+                Preencha todos os campos.
+                <span class="toast-fechar" onclick="document.getElementById('toast').remove()">×</span>
+            </div>
+        <?php endif; ?>
     </main>
     <footer>
         <?php 

@@ -2,7 +2,7 @@
     include_once 'rb/conexao.php';
 
     //carrega a solictação de compra no bd
-    if(isset($_GET['nome']) && isset($_GET['email']) && isset($_GET['tel'])){
+    if($_GET['nome'] != "" && $_GET['email'] != "" && $_GET['tel'] != ""){
 
         $sol = R::load('anuncios', $_GET['id']);
         $sol->status = 'Solicitado';
